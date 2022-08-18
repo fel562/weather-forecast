@@ -17,8 +17,6 @@ export default function WeatherForecast(props) {
   }
 
   function load() {
-    let apiKey = "66ed20f111d77bedbe75c776bbb6b187";
-
     let apiUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=35&lon=139&appid=66ed20f111d77bedbe75c776bbb6b187`;
 
     axios.get(apiUrl).then(handleResponse);
