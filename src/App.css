@@ -1,5 +1,11 @@
 .App {
-  text-align: center;
+    background: url("./images/map2.jpg") no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
 }
 
 .App-logo {

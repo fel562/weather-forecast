@@ -1,0 +1,103 @@
+h1 {
+  font-size: 2em;
+  text-transform: capitalize;
+}
+
+.Weather{
+  font-size: 0.8em;
+  font-family: "Poppins", sans-serif;
+    
+}
+.bg{}
+
+
+.wrapper,footer {
+  max-width: 600px;
+  margin:0 auto;
+border-radius: 10px;
+  
+  }
+  .wrapper {background: #b42e37;
+    padding: 30px;}
+.myGrey {
+  color: #fbbf24;
+    font-size:1.1em;}
+h2 {
+  font-size: 2em;
+}
+h1,
+h2 {
+  color: #f7fbfb;
+}
+h3 {
+  color: black;
+  font-size: 5em !important;
+  vertical-align: top;
+  float: left;
+}
+.degree {
+  
+  font-size: 1.5em;
+  vertical-align: top;
+  float: left;
+}
+footer a {
+    color: #2196f3;
+  text-decoration: none;
+}
+a {
+  color: #2196f3;
+  text-decoration: none !important;
+}
+.active{color: rgb(0, 0, 0) !important;}
+
+
+a:visited {
+  color: #2196f3;
+}
+a:hover {
+    color: rgb(0, 0, 0);
+  }
+.day {
+  font-size: 2em;
+      color: #0b0b0b;
+}
+.tempMax {
+  color: #ffffff; font-size: 1.1em;;
+}
+.tempMin {
+  color: #FBBF24;
+  font-size: 1.1em;
+  margin-left:10px;
+
+}
+p {
+  text-align: center;
+}
+img {
+  display: block;
+  margin: 0 auto;
+  height: 70px;
+}
+.imgmain {
+  float: left;
+width: 170px;
+  height: auto;
+    margin: -40px 0px 0px 10px;
+}
+
+#buttonC {
+  background: #FBBF24;
+  border:#FBBF24
+}
+#buttonS {
+  background: #2196f3;;
+  border: #2196f3;;
+}
+.invis, .invis a {
+  color:transparent;
+}
+@media screen and (max-width:500px) {.forminput {width:100% !important;}
+.formbutton {
+  width: 50% !important;
+}}
