@@ -140,7 +140,7 @@ export default function Weather(props) {
             </a>{" "}
             and{" "}
             <a
-              href="https://weather-react-forecast.netlify.app/"
+              href="https://github.com/fel562/weather-forecast"
               id="testlink"
               target="_blank"
               rel="noreferrer"
