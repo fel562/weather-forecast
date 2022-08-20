@@ -11,8 +11,8 @@ export default function Weather(props) {
   const [city, setCity] = useState("Somewhere");
   const [weather, setWeather] = useState({
     temp: "18",
-    cordlat: "33",
-    cordlon: "17",
+    cordlat: "22",
+    cordlon: "56",
     wind: "22",
     hum: "33",
     desc: "sunny",
@@ -40,7 +40,7 @@ export default function Weather(props) {
 
   function showAlert(event) {
     event.preventDefault();
-    let apiKey = "dc7180dce8b1f701e2637bca19954d38";
+    let apiKey = "66ed20f111d77bedbe75c776bbb6b187";
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
 
     axios.get(url).then(showTemp);
