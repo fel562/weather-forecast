@@ -8,7 +8,6 @@ h1 {
   font-family: "Poppins", sans-serif;
     
 }
-.bg{}
 
 
 .wrapper,footer {
@@ -85,7 +84,9 @@ width: 170px;
   height: auto;
     margin: -40px 0px 0px 10px;
 }
-
+.far, far a {
+  color:transparent;
+}
 #buttonC {
   background: #FBBF24;
   border:#FBBF24
