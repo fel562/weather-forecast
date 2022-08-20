@@ -40,7 +40,7 @@ export default function Weather(props) {
 
   function showAlert(event) {
     event.preventDefault();
-    let apiKey = "66ed20f111d77bedbe75c776bbb6b187";
+    let apiKey = "dc7180dce8b1f701e2637bca19954d38";
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
 
     axios.get(url).then(showTemp);
@@ -117,7 +117,10 @@ export default function Weather(props) {
           </div>
         </div>
         <div className="container mt-5">
-          <WeatherForecast coordinatesLon={22} coordinatesLat={12} />
+          <WeatherForecast
+            coordinatesLon={weather.cordlat}
+            coordinatesLat={weather.cordlon}
+          />
         </div>
 
         <footer>

@@ -1,48 +1,47 @@
-import React, { useState, useEffect } from "react";
-
+import React, { useState } from "react";
+import Weathericon from "./Weathericon";
 import axios from "axios";
-import WeatherDay from "./WeatherDay";
 
 export default function WeatherForecast(props) {
   let [loaded, setLoaded] = useState(false);
   let [forecast, setForecast] = useState(null);
 
-  useEffect(() => {
-    setLoaded(false);
-  }, [props.coordinates]);
-
   function handleResponse(response) {
+    console.log(response.data);
+    console.log(new Date(response.data.dt * 1000));
     setForecast(response.data.daily);
-    setLoaded(true);
   }
+  function day() {
+    let date = new Date();
+    let day = date.getDay();
 
-  function load() {
-    let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=35&lon=39&appid=66ed20f111d77bedbe75c776bbb6b187`;
+    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-    axios.get(apiUrl).then(handleResponse);
+    return days[day];
   }
-
   if (loaded) {
     return (
       <div className="WeatherForecast">
-        <div className="row">
-          {forecast.map(function (dailyForecast, index) {
-            if (index < 5) {
-              return (
-                <div className="col" key={index}>
-                  <WeatherDay data={dailyForecast} />
-                </div>
-              );
-            } else {
-              return null;
-            }
-          })}
+        <div className="row text-center">
+          <div className="col">
+            <div className="day">Thu</div>
+            <Weathericon code="01d" size={50} />
+            <div className="text-center">
+              <span className="tempMax">5</span>
+              <span className="tempMin">2</span>
+            </div>
+          </div>
         </div>
       </div>
     );
   } else {
-    load();
+    let apiKey = "dc7180dce8b1f701e2637bca19954d38";
+    console.log(props.coordinatesLat);
+    console.log(props.coordinatesLon);
 
+    let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${props.coordinatesLat}&lon=${props.coordinatesLon}&appid=${apiKey}&units=metric`;
+
+    axios.get(url).then(handleResponse);
     return null;
   }
 }
