@@ -4,15 +4,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Weathericon from "./Weathericon";
 import WeatherTemp from "./WeatherTemp";
 import WeatherForecast from "./WeatherForecast";
+import Footer from "./Footer";
 
 import axios from "axios";
 
 export default function Weather(props) {
-  const [city, setCity] = useState("Somewhere");
-  const [weather, setWeather] = useState({
+  let [city, setCity] = useState("Somewhere");
+  let [weather, setWeather] = useState({
     temp: "18",
-    cordlat: "22",
-    cordlon: "56",
+    cordlat: "33",
+    cordlon: "15",
     wind: "22",
     hum: "33",
     desc: "sunny",
@@ -37,18 +38,6 @@ export default function Weather(props) {
   } else {
     time = timeToday.getHours() + ":" + timeToday.getUTCMinutes();
   }
-
-  function showAlert(event) {
-    event.preventDefault();
-    let apiKey = "66ed20f111d77bedbe75c776bbb6b187";
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
-
-    axios.get(url).then(showTemp);
-  }
-  function myCity(event) {
-    setCity(event.target.value);
-  }
-
   function showTemp(response) {
     setWeather({
       temp: Math.round(response.data.main.temp),
@@ -62,6 +51,16 @@ export default function Weather(props) {
       icon: response.data.weather[0].icon,
     });
     //console.log(weather.temp);
+  }
+  function showAlert(event) {
+    event.preventDefault();
+    let apiKey = "66ed20f111d77bedbe75c776bbb6b187";
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+
+    axios.get(url).then(showTemp);
+  }
+  function myCity(event) {
+    setCity(event.target.value);
   }
 
   let form = (
@@ -123,35 +122,7 @@ export default function Weather(props) {
           />
         </div>
 
-        <footer>
-          <small>
-            This project was coded by
-            <a
-              href="https://www.linkedin.com/in/liubov-shupik-46940016b/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Liubov Shupik
-            </a>
-            and is
-            <a
-              href="https://github.com/fel562/weather-forecast"
-              target="_blank"
-              rel="noreferrer"
-            >
-              open-sourced on GitHub
-            </a>
-            and
-            <a
-              href="https://weather-forecast-liubov.netlify.app/"
-              id="testlink"
-              target="_blank"
-              rel="noreferrer"
-            >
-              hosted on Netlify
-            </a>
-          </small>
-        </footer>
+        <Footer />
       </div>
     </div>
   );
