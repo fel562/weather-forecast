@@ -118,8 +118,8 @@ export default function Weather(props) {
         </div>
         <div className="container mt-5">
           <WeatherForecast
-            coordinatesLon={weather.cordlat}
-            coordinatesLat={weather.cordlon}
+            coordinatesLon={weather.cordlon}
+            coordinatesLat={weather.cordlat}
           />
         </div>
 

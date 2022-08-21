@@ -9,7 +9,7 @@ export default function WeatherForecast(props) {
 
   useEffect(() => {
     setLoaded(false);
-  }, [props.city]);
+  }, [props.coordinatesLat, props.coordinatesLon]);
 
   function handleResponse(response) {
     console.log(response.data);
@@ -37,7 +37,7 @@ export default function WeatherForecast(props) {
   } else {
     let apiKey = "dc7180dce8b1f701e2637bca19954d38";
 
-    let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${props.coordinatesLat}&lon=${props.coordinatesLon}&appid=${apiKey}&units=metric`;
+    let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${props.coordinatesLat}&lon=${props.coordinatesLon}&units=metric&appid=${apiKey}`;
     console.log(url);
     axios.get(url).then(handleResponse);
     return null;
